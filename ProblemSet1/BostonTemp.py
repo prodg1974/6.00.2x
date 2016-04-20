@@ -1,6 +1,7 @@
 import string
-import ps1_pkgtest
+#import ps1_pkgtest
 import pylab
+import numpy
 PATH_TO_FILE = '/Users/paulr/Documents/Courses/6.00.2x/ProblemSet1/julyTemps.txt'
 
 def loadData():
@@ -8,7 +9,7 @@ def loadData():
         highs = []
         lows = []
         extremes = ()
-        print PATH_TO_FILE
+        #print PATH_TO_FILE
 	inFile = open(PATH_TO_FILE, 'r', 0)
 	for rec in inFile:
 	    data=rec.split()
@@ -28,6 +29,13 @@ def producePlot(lowTemps,highTemps):
         diffTemps.append(highTemps[ctr] - lowTemps[ctr])
         ctr += 1
     pylab.plot(range(1,32),diffTemps)
+#    pylab.xlabel('time (s)')
+#    pylab.ylabel('voltage (mV)')
+    pylab.title('Temp Range by Day in Boston')
+#    pylab.grid(True)
+#    pylab.savefig("test.png")
+#    pylab.show()
+    pylab.show()
 #inFile=file.open('julyTemps.txt',r)
 temps=loadData()
 producePlot(temps[1],temps[0])
